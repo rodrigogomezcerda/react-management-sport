@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import Team from '../Team';
+
 import './styles.scss';
 import Stadium from '../../assets/stadium.png';
 
@@ -25,6 +24,7 @@ const Game = props => {
       <Card className='card-game'>
         <CardHeader title='Locale' align='center' variant='heading' />
         <div className='logo-score'>
+          <Team name={localeName} logo={localeLogo} />
           <Typography color='primary' className='score-game'>
             {localeAnotation}
           </Typography>
@@ -53,6 +53,7 @@ const Game = props => {
       <Card className='card-game'>
         <CardHeader title='Visitor' align='center' variant='heading' />
         <div className='logo-score'>
+          <Team name={visitorName} logo={visitorLogo} />
           <Typography color='primary' className='score-game'>
             {visitorAnotation}
           </Typography>
