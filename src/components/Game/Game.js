@@ -40,7 +40,6 @@ const Game = props => {
           </Typography>
         </CardContent>
       </Card>
-
       <div className='info-game'>
         <img className='team-logo' src={Stadium} alt='Stadium' />
         <p>
