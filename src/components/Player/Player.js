@@ -17,6 +17,7 @@ const Player = props => {
             color='primary'
           >
             {name}
+            ohoallsdkjbjhjh
           </Typography>
         </CardContent>
       </Card>

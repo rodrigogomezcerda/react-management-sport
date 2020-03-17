@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Team from '../Team';
 import Player from '../Player';
 
@@ -18,11 +20,19 @@ const League = () => {
         <Team name='Pirates' logo={LogoPirates} />
         <Team name='Sharks' logo={LogoSharks} />
       </div>
+      <Button
+        variant='raised'
+        component={Link}
+        to='/calendar'
+        color='secondary'
+      >
+        Go to Calendar
+      </Button>
       <div className='list-player'>
-        <Team name='Sergio' logo={PhotoSergio} />
-        <Team name='Manuel' logo={PhotoManuel} />
-        <Team name='Jose' logo={PhotoJose} />
-        <Team name='Paco' logo={PhotoPaco} />
+        <Player name='Sergio' photo={PhotoSergio} />
+        <Player name='Manuel' photo={PhotoManuel} />
+        <Player name='Jose' photo={PhotoJose} />
+        <Player name='Paco' photo={PhotoPaco} />
       </div>
     </div>
   );
