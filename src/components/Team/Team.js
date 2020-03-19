@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { StarBorderOutlined, StarRate } from '@material-ui/icons';
 
 import './styles.scss';
@@ -7,7 +6,8 @@ import './styles.scss';
 const Team = props => {
   const { logo, name } = props;
   const [favorite, setFavorite] = useState({
-    state: '',
+    state: false,
+    click: false,
     dataLocalStorage: []
   });
   useEffect(() => {
@@ -23,21 +23,29 @@ const Team = props => {
       if (favoriteValue) {
         setFavorite({
           state: true,
-          dataLocalStorage: favorite.dataLocalStorage
+          click: false,
+          dataLocalStorage: localFavorite
         });
       } else {
         setFavorite({
           state: false,
+          click: false,
           dataLocalStorage: favorite.dataLocalStorage
         });
       }
     }
-  }, [name]);
+  }, []);
 
   useEffect(() => {
     let teamNewInArray = [];
     const localFavorite = JSON.parse(localStorage.getItem('favorite'));
-    if (localFavorite && favorite.dataLocalStorage.length > 0) {
+    if (
+      localFavorite &&
+      favorite.dataLocalStorage.length > 0 &&
+      favorite.click !== false
+    ) {
+      console.log(favorite.click);
+
       const foundTeam = favorite.dataLocalStorage.find(
         team => team.name === name
       );
@@ -62,7 +70,7 @@ const Team = props => {
         });
       }
       localStorage.setItem('favorite', JSON.stringify(teamNewInArray));
-    } else if (favorite.state !== '') {
+    } else if (favorite.click !== false) {
       teamNewInArray = [
         {
           name: name,
@@ -78,11 +86,13 @@ const Team = props => {
     if (localFavorite) {
       setFavorite({
         state: !favorite.state,
+        click: true,
         dataLocalStorage: localFavorite
       });
     } else {
       setFavorite({
         state: !favorite.state,
+        click: true,
         dataLocalStorage: favorite.dataLocalStorage
       });
     }
