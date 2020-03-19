@@ -12,8 +12,12 @@ const Header = () => {
         <Toolbar>
           <div className='logo'></div>
           <Typography variant='h6' className='flex'></Typography>
-          <Button color='inherit'>Team</Button>
-          <Button color='inherit'>Calendar</Button>
+          <Button color='inherit'>
+            <a href='/league'>Team's</a>
+          </Button>
+          <Button color='inherit'>
+            <a href='/calendar'>Calendar's</a>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

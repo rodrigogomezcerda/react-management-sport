@@ -5,9 +5,13 @@ import LogoFelines from '../../assets/logos/felinos.png';
 import LogoPirates from '../../assets/logos/piratas.png';
 import LogoShark from '../../assets/logos/tiburones.png';
 
-const Calendar = () => {
+import './styles.scss';
+
+const Calendar = props => {
+  const { match } = props;
   return (
     <div className='calendars'>
+      Team: {match.params.team}
       <Game
         localeName='Felinos'
         localeLogo={LogoFelines}
