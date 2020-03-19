@@ -7,7 +7,7 @@ const NotFound = () => {
     <div className='error'>
       <h1>Page not found</h1>
       <h2 className='e404'>Error 404</h2>
-      <Button variant='raised' component={Link} to='/' color='secondary'>
+      <Button variant='contained' component={Link} to='/' color='secondary'>
         Go to home
       </Button>
     </div>

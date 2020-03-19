@@ -31,7 +31,7 @@ const Game = props => {
         </div>
         <CardContent>
           <Typography
-            variant='title'
+            variant='h6'
             color='primary'
             align='center'
             component='h2'
@@ -59,7 +59,7 @@ const Game = props => {
         </div>
         <CardContent>
           <Typography
-            variant='title'
+            variant='h6'
             color='primary'
             align='center'
             component='h2'
