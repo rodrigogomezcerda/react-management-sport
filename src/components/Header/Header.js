@@ -1,8 +1,6 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import './styles.scss';
 
 const Header = () => {
@@ -12,11 +10,11 @@ const Header = () => {
         <Toolbar>
           <div className='logo'></div>
           <Typography variant='h6' className='flex'></Typography>
-          <Button color='inherit'>
-            <a href='/league'>Team's</a>
+          <Button color='inherit' component={Link} to='/league'>
+            Teams
           </Button>
-          <Button color='inherit'>
-            <a href='/calendar'>Calendar's</a>
+          <Button color='inherit' component={Link} to='/calendar'>
+            Calendars
           </Button>
         </Toolbar>
       </AppBar>

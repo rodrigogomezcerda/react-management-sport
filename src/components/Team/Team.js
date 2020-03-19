@@ -102,9 +102,9 @@ const Team = props => {
     <div>
       <img className='team-logo' src={logo} alt={name} />
       {favorite.state ? (
-        <StarRate onClick={handleClick} />
+        <StarRate onClick={handleClick} className='star star_selected' />
       ) : (
-        <StarBorderOutlined onClick={handleClick} />
+        <StarBorderOutlined onClick={handleClick} className='star' />
       )}
     </div>
   );

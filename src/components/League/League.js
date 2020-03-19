@@ -21,7 +21,7 @@ const League = () => {
         <Team name='Sharks' logo={LogoSharks} />
       </div>
       <Button
-        variant='raised'
+        variant='contained'
         component={Link}
         to='/calendar'
         color='secondary'

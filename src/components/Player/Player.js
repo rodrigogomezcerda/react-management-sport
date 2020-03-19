@@ -10,14 +10,8 @@ const Player = props => {
       <Card className='card'>
         <CardMedia className='media' image={photo} title='Felinos' />
         <CardContent>
-          <Typography
-            variant='subheading'
-            component='h2'
-            align='center'
-            color='primary'
-          >
+          <Typography component='h2' align='center' color='primary'>
             {name}
-            ohoallsdkjbjhjh
           </Typography>
         </CardContent>
       </Card>
