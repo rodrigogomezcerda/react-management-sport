@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import SportsSoccerTwoToneIcon from '@material-ui/icons/SportsSoccerTwoTone';
 import './styles.scss';
 
 const Header = () => {
@@ -8,7 +9,9 @@ const Header = () => {
     <div className='app-bar'>
       <AppBar position='static'>
         <Toolbar>
-          <div className='logo'></div>
+          <div className='logo'>
+            <SportsSoccerTwoToneIcon fontSize='large' />
+          </div>
           <Typography variant='h6' className='flex'></Typography>
           <Button color='inherit' component={Link} to='/league'>
             Teams
