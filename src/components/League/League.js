@@ -15,7 +15,8 @@ const League = () => {
   const [url] = useState('https://api-mi-liga.now.sh/api/jugadores');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  useEffect(() => {
+
+  /* useEffect(() => {
     const fetchApi = async () => {
       setIsError(false);
       setIsLoading(true);
@@ -28,8 +29,9 @@ const League = () => {
       setIsLoading(false);
     };
     fetchApi();
+
     return () => setData([]);
-  }, [url]);
+  }, [url]); */
   return (
     <div className='container'>
       <div className='list-team'>
@@ -46,7 +48,7 @@ const League = () => {
         Go to Calendar
       </Button>
       <div className='list-player'>
-        {isError && <div>Something went wrong ...</div>}
+        {/* {isError && <div>Something went wrong ...</div>}
         {isLoading ? (
           <div>Loading ...</div>
         ) : (
@@ -59,7 +61,7 @@ const League = () => {
               />
             );
           })
-        )}
+        )} */}
       </div>
     </div>
   );
