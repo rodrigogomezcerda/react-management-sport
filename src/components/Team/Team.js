@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardMedia, CardContent, Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent, Typography } from '@material-ui/core';
 import { StarBorderOutlined, StarRate } from '@material-ui/icons';
 
 import './styles.scss';
@@ -100,19 +100,25 @@ const Team = props => {
   };
 
   return (
-    <div>
-      <Card className='card'>
-        <CardMedia className='media' image={logo} title={name} />
+    <div className='card'>
+      <div className='media'>
+        <img src={logo} alt={name} />
+      </div>
+      <Card>
+        {/* <CardMedia className='media' image={logo} title={name} /> */}
+
         <CardContent>
           <Typography component='h2' align='center' color='primary'>
             {name}
           </Typography>
+        </CardContent>
+        <CardActions className='containerFavorite'>
           {favorite.state ? (
             <StarRate onClick={handleClick} className='star star_selected' />
           ) : (
             <StarBorderOutlined onClick={handleClick} className='star' />
           )}
-        </CardContent>
+        </CardActions>
       </Card>
     </div>
   );

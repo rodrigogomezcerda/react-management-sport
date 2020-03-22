@@ -1,10 +1,6 @@
 import React from 'react';
 import { Game } from '../../components';
 
-import LogoFelines from '../../assets/logos/felinos.png';
-import LogoPirates from '../../assets/logos/piratas.png';
-import LogoShark from '../../assets/logos/tiburones.png';
-
 import './styles.scss';
 
 const Calendar = props => {
@@ -14,10 +10,10 @@ const Calendar = props => {
       Team: {match.params.team}
       <Game
         localeName='Felinos'
-        localeLogo={LogoFelines}
+        localeLogo='https://media.api-sports.io/teams/531.png'
         localeAnotation='2'
         visitorName='Piratas'
-        visitorLogo={LogoPirates}
+        visitorLogo='https://media.api-sports.io/teams/531.png'
         visitorAnotation='1'
         stadium='Estadio Olímpico'
         date='20-Abril-2018'
@@ -25,10 +21,10 @@ const Calendar = props => {
       />
       <Game
         localeName='Piratas'
-        localeLogo={LogoPirates}
+        localeLogo='https://media.api-sports.io/teams/531.png'
         localeAnotation='2'
         visitorName='Tiburones'
-        visitorLogo={LogoShark}
+        visitorLogo='https://media.api-sports.io/teams/531.png'
         visitorAnotation='2'
         stadium='Estadio Universitario'
         date='24-Abril-2018'

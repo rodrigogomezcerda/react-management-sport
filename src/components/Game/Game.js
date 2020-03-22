@@ -20,54 +20,41 @@ const Game = props => {
   } = props;
 
   return (
-    <div className='games'>
-      <Card className='card-game'>
-        <CardHeader title='Locale' align='center' variant='heading' />
-        <div className='logo-score'>
-          <Team name={localeName} logo={localeLogo} />
-          <Typography color='primary' className='score-game'>
-            {localeAnotation}
-          </Typography>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-lg-2 col-sm-1'></div>
+        <div className='col-lg-8 col-sm-10'>
+          <div className='row fixture'>
+            <div className='col-lg-4 col-sm-12'>
+              <div className='logo-score'>
+                <Team name={localeName} logo={localeLogo} />
+                <Typography color='primary' className='score-game'>
+                  {localeAnotation}
+                </Typography>
+              </div>
+            </div>
+            <div className='col-lg-4 col-sm-12'>
+              <div className='info-game'>
+                <img className='team-logo' src={Stadium} alt='Stadium' />
+                <p>
+                  {stadium} <br />
+                  {date} <br />
+                  {time}
+                </p>
+              </div>
+            </div>
+            <div className='col-lg-4 col-sm-12'>
+              <div className='logo-score'>
+                <Team name={visitorName} logo={visitorLogo} />
+                <Typography color='primary' className='score-game'>
+                  {visitorAnotation}
+                </Typography>
+              </div>
+            </div>
+          </div>
         </div>
-        <CardContent>
-          <Typography
-            variant='h6'
-            color='primary'
-            align='center'
-            component='h2'
-          >
-            {localeName}
-          </Typography>
-        </CardContent>
-      </Card>
-      <div className='info-game'>
-        <img className='team-logo' src={Stadium} alt='Stadium' />
-        <p>
-          {stadium} <br />
-          {date} <br />
-          {time}
-        </p>
+        <div className='col-lg-2 col-sm-1'></div>
       </div>
-
-      <Card className='card-game'>
-        <CardHeader title='Visitor' align='center' variant='heading' />
-        <div className='logo-score'>
-          <Team name={visitorName} logo={visitorLogo} />
-          <Typography color='primary' className='score-game'>
-            {visitorAnotation}
-          </Typography>
-        </div>
-        <CardContent>
-          <Typography
-            variant='h6'
-            color='primary'
-            align='center'
-            component='h2'
-          >
-            {visitorName}
-          </Typography>
-        </CardContent>
-      </Card>
     </div>
   );
 };

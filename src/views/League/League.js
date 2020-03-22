@@ -1,17 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import api from '../../api';
 
 import { Team } from '../../components';
-
-import LogoFelines from './../../assets/logos/felinos.png';
-import LogoPirates from './../../assets/logos/piratas.png';
-import LogoSharks from './../../assets/logos/tiburones.png';
-
+const dataTest = [
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  },
+  {
+    name: 'Athletic Club',
+    logo: 'https://media.api-sports.io/teams/531.png'
+  }
+];
 const League = () => {
-  const [data, setData] = useState([]);
-  const [url] = useState('https://api-mi-liga.now.sh/api/jugadores');
+  const [data, setData] = useState(dataTest);
+  const [url] = useState('teams/league/775');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -20,8 +95,9 @@ const League = () => {
       setIsError(false);
       setIsLoading(true);
       try {
-        const result = await axios(url);
-        setData(result.data);
+        const result = await api(url);
+        console.log(result);
+        setData(result.data.api.teams);
       } catch (error) {
         setIsError(true);
       }
@@ -31,28 +107,22 @@ const League = () => {
 
     return () => setData([]);
   }, [url]); */
+
   return (
     <div className='container'>
-      <div className='list-team'>
-        <Team name='Felinos' logo={LogoFelines} />
-        <Team name='Piratas' logo={LogoPirates} />
-        <Team name='Tiburones' logo={LogoSharks} />
-      </div>
-      <div className='list-player'>
-        {/* {isError && <div>Something went wrong ...</div>}
+      <div className='row'>
+        {isError && <div>Something went wrong ...</div>}
         {isLoading ? (
-          <div>Loading ...</div>
+          <div className='col'>Loading ...</div>
         ) : (
-          data.map((player, index) => {
+          data.map((team, index) => {
             return (
-              <Player
-                key={index}
-                name={player.nombre}
-                photo={require('../../assets/photo/' + player.foto)}
-              />
+              <div className='col-sm-1 col-lg-2'>
+                <Team key={index} name={team.name} logo={team.logo} />
+              </div>
             );
           })
-        )} */}
+        )}
       </div>
     </div>
   );
