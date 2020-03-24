@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import Team from '../Team';
 
 import './styles.scss';
 import Stadium from '../../assets/stadium.png';
 
+const visibleStart = false;
 const Game = props => {
   const {
     localeName,
@@ -16,7 +17,8 @@ const Game = props => {
     visitorAnotation,
     stadium,
     date,
-    time
+    time,
+    status
   } = props;
 
   return (
@@ -27,7 +29,11 @@ const Game = props => {
           <div className='row fixture'>
             <div className='col-lg-4 col-sm-12'>
               <div className='logo-score'>
-                <Team name={localeName} logo={localeLogo} />
+                <Team
+                  name={localeName}
+                  logo={localeLogo}
+                  visibleStart={visibleStart}
+                />
                 <Typography color='primary' className='score-game'>
                   {localeAnotation}
                 </Typography>
@@ -39,13 +45,18 @@ const Game = props => {
                 <p>
                   {stadium} <br />
                   {date} <br />
-                  {time}
+                  {time} <br />
+                  {status}
                 </p>
               </div>
             </div>
             <div className='col-lg-4 col-sm-12'>
               <div className='logo-score'>
-                <Team name={visitorName} logo={visitorLogo} />
+                <Team
+                  name={visitorName}
+                  logo={visitorLogo}
+                  visibleStart={visibleStart}
+                />
                 <Typography color='primary' className='score-game'>
                   {visitorAnotation}
                 </Typography>

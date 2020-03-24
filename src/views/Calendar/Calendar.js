@@ -1,35 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import api from '../../api';
+import { dateFormat } from '../../helpers/date';
+import { timeFormat } from '../../helpers/time';
 import { Game } from '../../components';
 
 import './styles.scss';
 
 const Calendar = props => {
   const { match } = props;
+  const [data, setData] = useState([]);
+  const [url] = useState(`fixtures/team/${match.params.team}/last/3`);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      setIsError(false);
+      setIsLoading(true);
+      try {
+        const result = await api(url);
+        setData(result.data.api.fixtures);
+      } catch (error) {
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
+    fetchApi();
+
+    return () => setData([]);
+  }, [url]);
+
   return (
     <div className='calendars'>
-      Team: {match.params.team}
-      <Game
-        localeName='Felinos'
-        localeLogo='https://media.api-sports.io/teams/531.png'
-        localeAnotation='2'
-        visitorName='Piratas'
-        visitorLogo='https://media.api-sports.io/teams/531.png'
-        visitorAnotation='1'
-        stadium='Estadio Olímpico'
-        date='20-Abril-2018'
-        time='8:00 pm'
-      />
-      <Game
-        localeName='Piratas'
-        localeLogo='https://media.api-sports.io/teams/531.png'
-        localeAnotation='2'
-        visitorName='Tiburones'
-        visitorLogo='https://media.api-sports.io/teams/531.png'
-        visitorAnotation='2'
-        stadium='Estadio Universitario'
-        date='24-Abril-2018'
-        time='7:00 pm'
-      />
+      Team: {match.params.name}
+      {isError && <div>Something went wrong ...</div>}
+      {isLoading ? (
+        <div className='col'>Loading ...</div>
+      ) : (
+        data.map((game, index) => {
+          return (
+            <Game
+              key={index}
+              localeName={game.homeTeam.team_name}
+              localeLogo={game.homeTeam.logo}
+              localeAnotation={game.goalsHomeTeam}
+              visitorName={game.awayTeam.team_name}
+              visitorLogo={game.awayTeam.logo}
+              visitorAnotation={game.goalsAwayTeam}
+              stadium={game.venue}
+              date={dateFormat(game.event_date)}
+              time={timeFormat(game.event_timestamp)}
+              status={game.status}
+            />
+          );
+        })
+      )}
     </div>
   );
 };

@@ -6,7 +6,7 @@ const Router = () => {
     <Switch>
       <Route exact path='/' component={ViewLeague} />
       <Route exact path='/league' component={ViewLeague} />
-      <Route exact path='/calendar' component={ViewCalendar} />
+      <Route exact path='/calendar/:team/:name' component={ViewCalendar} />
       <Route component={ViewNotFound} />
     </Switch>
   );

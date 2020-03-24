@@ -16,9 +16,6 @@ const Header = () => {
           <Button color='inherit' component={Link} to='/league'>
             Teams
           </Button>
-          <Button color='inherit' component={Link} to='/calendar'>
-            Calendars
-          </Button>
         </Toolbar>
       </AppBar>
     </div>
