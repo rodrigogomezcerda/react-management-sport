@@ -16,9 +16,13 @@ const Team = props => {
   return (
     <div className='card'>
       <div className='media'>
-        <Link to={`/calendar/${teamId}/${name}`}>
+        {visibleStart ? (
+          <Link to={`/calendar/${teamId}/${name}`}>
+            <img src={logo} alt={name} />
+          </Link>
+        ) : (
           <img src={logo} alt={name} />
-        </Link>
+        )}
       </div>
 
       <Card>

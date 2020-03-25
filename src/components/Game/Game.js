@@ -9,8 +9,10 @@ import Stadium from '../../assets/stadium.png';
 const visibleStart = false;
 const Game = props => {
   const {
+    localeId,
     localeName,
     localeLogo,
+    visitorId,
     visitorName,
     visitorLogo,
     localeAnotation,
@@ -33,6 +35,7 @@ const Game = props => {
                   name={localeName}
                   logo={localeLogo}
                   visibleStart={visibleStart}
+                  teamId={localeId}
                 />
                 <Typography color='primary' className='score-game'>
                   {localeAnotation}
@@ -56,6 +59,7 @@ const Game = props => {
                   name={visitorName}
                   logo={visitorLogo}
                   visibleStart={visibleStart}
+                  teamId={visitorId}
                 />
                 <Typography color='primary' className='score-game'>
                   {visitorAnotation}

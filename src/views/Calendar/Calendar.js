@@ -41,9 +41,11 @@ const Calendar = props => {
           return (
             <Game
               key={index}
+              localeId={game.homeTeam.team_id}
               localeName={game.homeTeam.team_name}
               localeLogo={game.homeTeam.logo}
               localeAnotation={game.goalsHomeTeam}
+              visitorId={game.awayTeam.team_id}
               visitorName={game.awayTeam.team_name}
               visitorLogo={game.awayTeam.logo}
               visitorAnotation={game.goalsAwayTeam}
