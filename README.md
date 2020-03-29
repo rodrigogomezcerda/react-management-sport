@@ -6,7 +6,7 @@ The project complete was created with functional components with React Hooks, al
 The main functionalities developed were:
 
 - favorite button with insert in localstorage
-- connection with api football with the axios library [www.api-football.com](http://https://www.api-football.com/ 'www.api-football.com')
+- connection with api football with the axios library [www.api-football.com](https://www.api-football.com/ 'www.api-football.com')
 
 ### Tech
 
