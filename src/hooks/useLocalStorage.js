@@ -11,8 +11,9 @@ const useLocalStorage = (key, initialValue) => {
     }
   });
 
-  const setValue = value => {
+  const setValue = (value) => {
     try {
+      // eslint-disable-next-line operator-linebreak
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);

@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api';
-
 import { Team } from '../../components';
-/* const dataTest = [
-  {
-    name: 'Athletic Club',
-    logo: 'https://media.api-sports.io/teams/531.png'
-  },
-  {
-    name: 'Barcelona',
-    logo: 'https://media.api-sports.io/teams/529.png'
-  },
-  {
-    name: 'Celta Vigo',
-    logo: 'https://media.api-sports.io/teams/538.png'
-  }
-]; */
+
 const visibleStart = true;
 const League = () => {
   const [data, setData] = useState([]);
@@ -41,21 +27,24 @@ const League = () => {
     return () => setData([]);
   }, [url]);
   return (
-    <div className='container'>
-      <div className='row'>
+    <div className="container">
+      <div className="row">
         {isError && <div>Something went wrong ...</div>}
         {isLoading ? (
-          <div className='col'>Loading ...</div>
+          <div className="col">Loading ...</div>
         ) : (
           data.map((team, index) => {
+            // eslint-disable-next-line camelcase
             const { name, logo, team_id } = team;
             return (
-              <div className='col-sm-1 col-lg-2'>
+              <div className="col-sm-1 col-lg-2">
                 <Team
+                  // eslint-disable-next-line react/no-array-index-key
                   key={index}
                   name={name}
                   logo={logo}
                   visibleStart={visibleStart}
+                  // eslint-disable-next-line camelcase
                   teamId={team_id}
                 />
               </div>

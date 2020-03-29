@@ -6,9 +6,13 @@ import { Game } from '../../components';
 
 import './styles.scss';
 
-const Calendar = props => {
+const Calendar = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { match } = props;
+  // eslint-disable-next-line react/prop-types
+  const { name } = match.params;
   const [data, setData] = useState([]);
+  // eslint-disable-next-line react/prop-types
   const [url] = useState(`fixtures/team/${match.params.team}/last/3`);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -31,31 +35,31 @@ const Calendar = props => {
   }, [url]);
 
   return (
-    <div className='calendars'>
-      Team: {match.params.name}
+    <div className="calendars">
+      Team:
+      {name}
       {isError && <div>Something went wrong ...</div>}
       {isLoading ? (
-        <div className='col'>Loading ...</div>
+        <div className="col">Loading ...</div>
       ) : (
-        data.map((game, index) => {
-          return (
-            <Game
-              key={index}
-              localeId={game.homeTeam.team_id}
-              localeName={game.homeTeam.team_name}
-              localeLogo={game.homeTeam.logo}
-              localeAnotation={game.goalsHomeTeam}
-              visitorId={game.awayTeam.team_id}
-              visitorName={game.awayTeam.team_name}
-              visitorLogo={game.awayTeam.logo}
-              visitorAnotation={game.goalsAwayTeam}
-              stadium={game.venue}
-              date={dateFormat(game.event_date)}
-              time={timeFormat(game.event_timestamp)}
-              status={game.status}
-            />
-          );
-        })
+        data.map((game, index) => (
+          <Game
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            localeId={game.homeTeam.team_id}
+            localeName={game.homeTeam.team_name}
+            localeLogo={game.homeTeam.logo}
+            localeAnotation={game.goalsHomeTeam}
+            visitorId={game.awayTeam.team_id}
+            visitorName={game.awayTeam.team_name}
+            visitorLogo={game.awayTeam.logo}
+            visitorAnotation={game.goalsAwayTeam}
+            stadium={game.venue}
+            date={dateFormat(game.event_date)}
+            time={timeFormat(game.event_timestamp)}
+            status={game.status}
+          />
+        ))
       )}
     </div>
   );
